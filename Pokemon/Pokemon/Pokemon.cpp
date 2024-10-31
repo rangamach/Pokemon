@@ -44,7 +44,10 @@ public:
 
     Pokemon()
     {
-
+        name = "Unknown";
+        type = Pokemon_Types::Normal_Type;
+        health = 50;
+        cout << "A new Pokemon has been created with the default constructor!\n";
     }
 
     Pokemon(string poke_name, Pokemon_Types poke_type, int poke_health)
@@ -52,6 +55,19 @@ public:
         name = poke_name;
         type = poke_type;
         health = poke_health;
+    }
+
+    Pokemon(const Pokemon &other)
+    {
+        name = other.name;
+        type = other.type;
+        health = other.health;
+        cout << "A new Pokemon has been copied from " << other.name << "!\n";
+    }
+    
+    ~Pokemon()
+    {
+        cout << name << " has been released.\n";
     }
 
     void Attack()
@@ -66,6 +82,16 @@ class Player
         string name;
         Pokemon captured_pokemon;
 
+        Player()
+        {
+            captured_pokemon = Pokemon();
+        }
+
+        Player(string playerName, Pokemon playerCapturedPokemon)
+        {
+            name = playerName;
+            captured_pokemon = playerCapturedPokemon;
+        }
         void ChosenPokemon(int choice)
         {
             switch ((Pokemon_Choice)choice)
@@ -98,6 +124,11 @@ class ProfessorOak
             cout << name << ": But enough about me. Let's talk about you!\n";
         }
 
+        ProfessorOak(string prof_name)
+        {
+            name = prof_name;
+        }
+
         void PlayerIntro(Player& player)
         {
             cout << name << ": First, tell me what is your name?\n";
@@ -122,9 +153,33 @@ class ProfessorOak
 
 int main()
 {
-    ProfessorOak Oak;
-    Pokemon placeholderPokemon;
-    Player player;
+    // Task 1: Test default and parameterized constructors
+    Pokemon defaultPokemon; // Using default constructor
+    Pokemon charmander("Charmander", Pokemon_Types::Fire_Type, 100); // Using parameterized constructor
+
+    cout << "Pokemon Details:\n";
+    cout << "Name: " << defaultPokemon.name << "\nType: " << (int)defaultPokemon.type << "\nHealth: " << defaultPokemon.health << "\n";
+    cout << "Name: " << charmander.name << "\nType: " << (int)charmander.type << "\nHealth: " << charmander.health << "\n";
+
+    // Task 2: Test the copy constructor
+    Pokemon bulbasaur("Bulbasaur", Pokemon_Types::Grass_Type, 100); // Create a Pokemon
+    Pokemon bulbasaurCopy = bulbasaur; // Copy the Pokemon
+    cout << "Original Pokemon Health: " << bulbasaur.health << "\n";
+    cout << "Copied Pokemon Health: " << bulbasaurCopy.health << "\n";
+
+    // Modify the copy
+    bulbasaurCopy.health = 80;
+    cout << "After Modification:\n";
+    cout << "Original Pokemon Health: " << bulbasaur.health << "\n";
+    cout << "Copied Pokemon Health: " << bulbasaurCopy.health << "\n";
+
+    // Task 3: Test the destructor
+    {
+        Pokemon squirtle("Squirtle", Pokemon_Types::Water_Type, 100); // Pokemon will be destroyed at the end of this scope
+    } // Destructor will be called here
+    ProfessorOak Oak("Professor Oak");
+    Pokemon placeholderPokemon("Placeholder", Pokemon_Types::Fire_Type, 0);
+    Player player("", placeholderPokemon);
 
     placeholderPokemon.name = "Pikachu";
     placeholderPokemon.type = Pokemon_Types::Electric_Type;
