@@ -3,86 +3,87 @@
 #include "PokemonType.hpp"
 #include "PokemonChoice.hpp"
 #include "Utility.hpp"
-
+#include "Pokemons.hpp"
+#include "Player.hpp"
 
 using namespace std;
 
 //Classes
-class Pokemon
-{
-public:
-    string name;
-    Pokemon_Types type;
-    int health;
+//class Pokemon
+//{
+//public:
+//    string name;
+//    Pokemon_Types type;
+//    int health;
+//
+//    Pokemon()
+//    {
+//        name = "Unknown";
+//        type = Pokemon_Types::Normal_Type;
+//        health = 50;
+//    }
+//
+//    Pokemon(string poke_name, Pokemon_Types poke_type, int poke_health)
+//    {
+//        name = poke_name;
+//        type = poke_type;
+//        health = poke_health;
+//    }
+//
+//    Pokemon(const Pokemon &other)
+//    {
+//        name = other.name;
+//        type = other.type;
+//        health = other.health;
+//    }
+//    
+//    ~Pokemon()
+//    {
+// 
+//    }
+//
+//    void Attack()
+//    {
+//        cout << name << " attacks with a powerful move!\n";
+//    }
+//};
 
-    Pokemon()
-    {
-        name = "Unknown";
-        type = Pokemon_Types::Normal_Type;
-        health = 50;
-    }
-
-    Pokemon(string poke_name, Pokemon_Types poke_type, int poke_health)
-    {
-        name = poke_name;
-        type = poke_type;
-        health = poke_health;
-    }
-
-    Pokemon(const Pokemon &other)
-    {
-        name = other.name;
-        type = other.type;
-        health = other.health;
-    }
-    
-    ~Pokemon()
-    {
- 
-    }
-
-    void Attack()
-    {
-        cout << name << " attacks with a powerful move!\n";
-    }
-};
-
-class Player
-{
-    public:
-        string name;
-        Pokemon captured_pokemon;
-
-        Player()
-        {
-            captured_pokemon = Pokemon();
-        }
-
-        Player(string playerName, Pokemon playerCapturedPokemon)
-        {
-            name = playerName;
-            captured_pokemon = playerCapturedPokemon;
-        }
-        void ChosenPokemon(int choice)
-        {
-            switch ((Pokemon_Choice)choice)
-            {
-            case Pokemon_Choice::Charmander:
-                captured_pokemon = Pokemon("Charmander", Pokemon_Types::Fire_Type, 100);
-                break;
-            case Pokemon_Choice::Bulbasaur:
-                captured_pokemon = Pokemon("Bulbasaur", Pokemon_Types::Grass_Type, 100);
-                break;
-            case Pokemon_Choice::Squirtle:
-                captured_pokemon = Pokemon("Squirtle", Pokemon_Types::Water_Type, 100);
-                break;
-            default:
-                captured_pokemon = Pokemon("Pikachu", Pokemon_Types::Electric_Type, 100);
-                break;
-            }
-            cout << name << " chose " << captured_pokemon.name << "\n";
-        }
-};
+//class Player
+//{
+//    public:
+//        string name;
+//        Pokemon captured_pokemon;
+//
+//        Player()
+//        {
+//            captured_pokemon = Pokemon();
+//        }
+//
+//        Player(string playerName, Pokemon playerCapturedPokemon)
+//        {
+//            name = playerName;
+//            captured_pokemon = playerCapturedPokemon;
+//        }
+//        void ChosenPokemon(int choice)
+//        {
+//            switch ((Pokemon_Choice)choice)
+//            {
+//            case Pokemon_Choice::Charmander:
+//                captured_pokemon = Pokemon("Charmander", Pokemon_Types::Fire_Type, 100);
+//                break;
+//            case Pokemon_Choice::Bulbasaur:
+//                captured_pokemon = Pokemon("Bulbasaur", Pokemon_Types::Grass_Type, 100);
+//                break;
+//            case Pokemon_Choice::Squirtle:
+//                captured_pokemon = Pokemon("Squirtle", Pokemon_Types::Water_Type, 100);
+//                break;
+//            default:
+//                captured_pokemon = Pokemon("Pikachu", Pokemon_Types::Electric_Type, 100);
+//                break;
+//            }
+//            cout << name << " chose " << captured_pokemon.name << "\n";
+//        }
+//};
 
 class ProfessorOak
 {
@@ -128,7 +129,6 @@ class ProfessorOak
 
             cout << "Professor Oak: " << player.captured_pokemon.name << " and you, " << player.name << ", are going to be the best of friends!\n";
             Utility::WaitForEnter();
-            Utility::WaitForEnter();
         }
 
         void ExplainMainQuest(Player player)
@@ -138,7 +138,7 @@ class ProfessorOak
             Utility::WaitForEnter();
             cout << name << ": You see, becoming a Pokemon Master is no easy feat, it takes courage, wisdom, and a bit of luck.\n";
             Utility::WaitForEnter();
-            cout << name << ": Your mission, should you choose to accept it (and trust me, you really don’t have a choice) is to collect all the Pokemon Badges and conquer the Pokemon League. \n";
+            cout << name << ": Your mission, should you choose to accept it (and trust me, you really do not have a choice) is to collect all the Pokemon Badges and conquer the Pokemon League. \n";
             Utility::WaitForEnter();
             cout << player.name << ": Wait... that sounds a lot like every other Pokemon game out there.\n";
             Utility::WaitForEnter();
@@ -150,7 +150,7 @@ class ProfessorOak
             Utility::WaitForEnter();
             cout << player.name << ": Sounds like a walk in the park... right?\n";
             Utility::WaitForEnter();
-            cout << name << ": Hah! That’s what they all say! But beware, young Trainer, the path to victory is fraught with challenges. And if you lose a battle... well, let’s just say you'll be starting from square one.\n";
+            cout << name << ": Hah! That is what they all say! But beware, young Trainer, the path to victory is fraught with challenges. And if you lose a battle... well, let’s just say you'll be starting from square one.\n";
             Utility::WaitForEnter();
             cout << name << ": So, what do you say? Are you ready to become the next Pokemon Champion?\n";
             Utility::WaitForEnter();
@@ -212,7 +212,7 @@ void GameLoop(Player &player)
 
 int main()
 {
-    Pokemon charmander("Charmander", Pokemon_Types::Fire_Type, 100);
+    Pokemons charmander("Charmander", Pokemon_Types::Fire_Type, 100);
 
     ProfessorOak Oak("Professor Oak");
     Player player("Ash", charmander);

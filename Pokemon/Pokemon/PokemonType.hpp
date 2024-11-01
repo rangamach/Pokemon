@@ -1,3 +1,5 @@
+#pragma once
+
 enum class Pokemon_Types
 {
     Normal_Type,
