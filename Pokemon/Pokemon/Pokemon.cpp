@@ -1,6 +1,7 @@
 #include <iostream>
 #include<string>
 
+
 using namespace std;
 
 void WaitForEnter()
@@ -249,8 +250,7 @@ void GameLoop(Player &player)
 
 int main()
 {
-    Pokemon charmander("Charmander", Pokemon_Types::Fire_Type, 100); // Using parameterized constructor
-
+    Pokemon charmander("Charmander", Pokemon_Types::Fire_Type, 100);
 
     ProfessorOak Oak("Professor Oak");
     Player player("Ash", charmander);
@@ -262,4 +262,4 @@ int main()
     Oak.ExplainMainQuest(player);
 
     GameLoop(player);
-}
+#include "Pokemon.hpp"
