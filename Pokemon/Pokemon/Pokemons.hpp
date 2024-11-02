@@ -11,10 +11,14 @@ public:
     string name;
     Pokemon_Types type;
     int health;
+    int max_health;
 
     Pokemons();
     Pokemons(string poke_name, Pokemon_Types poke_type, int poke_health);
     Pokemons(const Pokemons& other);
     ~Pokemons();
-    void Attack();
+    void Attack(Pokemons &target_pokemon);
+    void TakeDamage(int damage);
+    bool IsFainted() const;
+    void Battle(Pokemons &player_pokemon, Pokemons &wild_pokemon);
 };

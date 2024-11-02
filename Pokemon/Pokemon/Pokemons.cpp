@@ -30,8 +30,37 @@ Pokemons::~Pokemons()
 
 }
 
-void Pokemons::Attack()
+void Pokemons::Attack(Pokemons &target_pokemon)
 {
-    cout << name << " attacks with a powerful move!\n";
+    int damage = 10;
+    cout << name << " inflicts an attack to " << target_pokemon.name << " that does " << damage << " damage!\n";
+    target_pokemon.TakeDamage(damage);
+}
+
+void Pokemons::TakeDamage(int damage)
+{
+    health -= damage;
+    if (health < 0)
+        health = 0;
+}
+
+bool Pokemons::IsFainted() const
+{
+    return health <= 0;
+}
+
+void Pokemons::Battle(Pokemons& player_pokemon, Pokemons& wild_pokemon)
+{
+    cout << "A wild " << wild_pokemon.name << " appeared!\n";
+    while (!player_pokemon.IsFainted() && !wild_pokemon.IsFainted())
+    {
+        player_pokemon.Attack(wild_pokemon);
+        if (!wild_pokemon.IsFainted())
+            wild_pokemon.Attack(player_pokemon);
+        if (player_pokemon.IsFainted())
+            cout << player_pokemon.name << " has fainted! You lose the battle.\n";
+        else if(wild_pokemon.IsFainted())
+            cout << wild_pokemon.name << " has fainted! You win the battle.\n";
+    }
 }
 

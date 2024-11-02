@@ -38,7 +38,7 @@ void Game::GameLoop(Player& player)
             {
                 WildPokemonEncounterHandler encounters;
                 Pokemons encountered_pokemon = encounters.GetRandomWildPokemonFromGrass(forest_grass);
-                cout << "A wild " << encountered_pokemon.name << " appeared!\n";
+                encountered_pokemon.Battle(player.captured_pokemon, encountered_pokemon);
                 break;
             }
             case 2:
