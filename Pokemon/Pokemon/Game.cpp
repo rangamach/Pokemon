@@ -3,7 +3,9 @@
 #include "PokemonType.hpp"
 #include "Utility.hpp"
 #include "WildPokemonEncounterHandler.hpp"
+#include "BattleManager.hpp"
 #include<iostream>
+
 
 using namespace std;
 
@@ -18,6 +20,7 @@ Game::Game()
 }
 void Game::GameLoop(Player& player)
 {
+    BattleManager battle_manager;
     int choice;
     bool keepPlaying = true;
     while (keepPlaying)
@@ -38,7 +41,8 @@ void Game::GameLoop(Player& player)
             {
                 WildPokemonEncounterHandler encounters;
                 Pokemons encountered_pokemon = encounters.GetRandomWildPokemonFromGrass(forest_grass);
-                encountered_pokemon.Battle(player.captured_pokemon, encountered_pokemon);
+                //encountered_pokemon.Battle(player.captured_pokemon, encountered_pokemon);
+                battle_manager.StartBattle(player,encountered_pokemon);
                 break;
             }
             case 2:

@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BattleManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Pokemon.cpp" />
@@ -135,6 +136,7 @@
     <ClCompile Include="WildPokemonEncounterHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BattleManager.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Grass.hpp" />
     <ClInclude Include="Player.hpp" />

@@ -53,8 +53,8 @@ bool Pokemons::IsFainted() const
 
 void Pokemons::Battle(Pokemons& player_pokemon, Pokemons& wild_pokemon)
 {
-    cout << "A wild " << wild_pokemon.name << " appeared!\n";
-    while (!player_pokemon.IsFainted() && !wild_pokemon.IsFainted())
+    //cout << "A wild " << wild_pokemon.name << " appeared!\n";
+    /*while (!player_pokemon.IsFainted() && !wild_pokemon.IsFainted())
     {
         player_pokemon.Attack(wild_pokemon);
         if (!wild_pokemon.IsFainted())
@@ -63,7 +63,7 @@ void Pokemons::Battle(Pokemons& player_pokemon, Pokemons& wild_pokemon)
             cout << player_pokemon.name << " has fainted! You lose the battle.\n";
         else if(wild_pokemon.IsFainted())
             cout << wild_pokemon.name << " has fainted! You win the battle.\n";
-    }
+    }*/
 }
 
 void Pokemons::Heal()
