@@ -11,11 +11,12 @@ Pokemons::Pokemons()
     Pokemons::health = 50;
 }
 
-Pokemons::Pokemons(string poke_name, Pokemon_Types poke_type, int poke_health)
+Pokemons::Pokemons(string poke_name, Pokemon_Types poke_type, int poke_health, int poke_attack_power)
 {
     Pokemons::name = poke_name;
     Pokemons::type = poke_type;
     Pokemons::health = poke_health;
+    Pokemons::attack_power = poke_attack_power;
 }
 
 Pokemons::Pokemons(const Pokemons& other)
@@ -23,6 +24,7 @@ Pokemons::Pokemons(const Pokemons& other)
     Pokemons::name = other.name;
     Pokemons::type = other.type;
     Pokemons::health = other.health;
+    Pokemons::attack_power = other.attack_power;
 }
 
 Pokemons::~Pokemons()
@@ -32,7 +34,7 @@ Pokemons::~Pokemons()
 
 void Pokemons::Attack(Pokemons &target_pokemon)
 {
-    int damage = 10;
+    int damage = attack_power;
     cout << name << " inflicts an attack to " << target_pokemon.name << " that does " << damage << " damage!\n";
     target_pokemon.TakeDamage(damage);
 }
@@ -62,5 +64,10 @@ void Pokemons::Battle(Pokemons& player_pokemon, Pokemons& wild_pokemon)
         else if(wild_pokemon.IsFainted())
             cout << wild_pokemon.name << " has fainted! You win the battle.\n";
     }
+}
+
+void Pokemons::Heal()
+{
+    health = max_health;
 }
 

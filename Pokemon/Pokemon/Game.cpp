@@ -11,9 +11,9 @@ Game::Game()
 {
     forest_grass = {
         "Forest", 
-        {{"Pidgey",Pokemon_Types::Normal_Type,40},
-         {"Zubat",Pokemon_Types::Poison_Type,30},
-         {"Caterpie",Pokemon_Types::Bug_Type,35}}, 
+        {{"Pidgey",Pokemon_Types::Normal_Type,40,2},
+         {"Zubat",Pokemon_Types::Poison_Type,30,10},
+         {"Caterpie",Pokemon_Types::Bug_Type,35,5}}, 
         70 };
 }
 void Game::GameLoop(Player& player)
@@ -42,8 +42,11 @@ void Game::GameLoop(Player& player)
                 break;
             }
             case 2:
-                cout << "You head to the PokeCenter, but Nurse Joy is out on a coffee break. Guess your Pokemon will have to tough it out for now!\n";
+            {
+                player.captured_pokemon.Heal();
+                cout << player.captured_pokemon.name << "'s health is fully restored.";
                 break;
+            }
             case 3:
                 cout << "You march up to the Gym, but it's closed for renovations. Seems like even Gym Leaders need a break!\n";
                 break;

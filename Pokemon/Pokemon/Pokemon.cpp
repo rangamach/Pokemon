@@ -137,7 +137,7 @@ int main()
 {
     Game loop;
 
-    Pokemons charmander("Charmander", Pokemon_Types::Fire_Type, 100);
+    Pokemons charmander("Charmander", Pokemon_Types::Fire_Type, 100, 15);
 
     ProfessorOak Oak("Professor Oak");
     Player player("Ash", charmander);
