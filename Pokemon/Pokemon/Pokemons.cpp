@@ -65,3 +65,13 @@ void Pokemons::ShowHealth(Pokemons pokemon)
     cout << "\n" << pokemon.name << "'s health is at " << pokemon.health << endl;
 }
 
+int Pokemons::GetHealth()
+{
+    return health;
+}
+
+void Pokemons::SetHealth(int updated_health)
+{
+    health = updated_health;
+}
+
