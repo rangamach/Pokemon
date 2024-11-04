@@ -23,4 +23,6 @@ public:
     bool IsFainted() const;
     void Heal();
     void ShowHealth(Pokemons pokemon);
+    int GetHealth();
+    void SetHealth(int updated_health);
 };
