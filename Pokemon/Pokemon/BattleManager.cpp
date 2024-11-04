@@ -7,26 +7,41 @@ using namespace std;
 
 void BattleManager::StartBattle(Player &player, Pokemons &wild_pokemon)
 {
+    battle_state.player_pokemon = &player.captured_pokemon;
+    battle_state.wild_pokemon = &wild_pokemon;
+    battle_state.player_turn = true;
+    battle_state.battle_unfinished = true;
 	cout << "A wild " << wild_pokemon.name << " appeared!\n";
 	Battle(player.captured_pokemon, wild_pokemon);
 }
 
 void BattleManager::Battle(Pokemons& player_pokemon, Pokemons& wild_pokemon)
 {
-    while (!player_pokemon.IsFainted() && !wild_pokemon.IsFainted())
+    while (battle_state.battle_unfinished)
     {
-        player_pokemon.Attack(wild_pokemon);
-        if (!wild_pokemon.IsFainted())
-            wild_pokemon.Attack(player_pokemon);
+        if (battle_state.player_turn)
+            battle_state.player_pokemon->Attack(*battle_state.wild_pokemon);
+        else
+            battle_state.wild_pokemon->Attack(*battle_state.player_pokemon);
+        UpdateBattleState();
+        battle_state.player_turn = !battle_state.player_turn;
         Utility::WaitForEnter();
     }
-    BattleOutcome(player_pokemon,player_pokemon.IsFainted());
+    BattleOutcome();
 }
 
-void BattleManager::BattleOutcome(Pokemons &player_pokemon, bool playerWon)
+void BattleManager::UpdateBattleState()
 {
-    if(playerWon)
-        cout << player_pokemon.name << " is victorious! Keep an eye on your Pokémon's health.\n";
-    else
-        cout << "Oh no! " << player_pokemon.name << " fainted! You need to visit the PokeCenter.\n";
+    if (battle_state.player_pokemon->IsFainted())
+        battle_state.battle_unfinished = false;
+    else if (battle_state.wild_pokemon->IsFainted())
+        battle_state.battle_unfinished = false;
+}
+
+void BattleManager::BattleOutcome()
+{
+    if(battle_state.player_pokemon->IsFainted())
+        cout << "Oh no! " << battle_state.player_pokemon->name << " fainted! You need to visit the PokeCenter.\n";
+    else if(battle_state.wild_pokemon->IsFainted())
+        cout << "Congratulations!!! " << battle_state.player_pokemon->name << " is victorious! Keep an eye on the health of your Pokemon.\n";
 }

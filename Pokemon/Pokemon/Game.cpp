@@ -13,9 +13,9 @@ Game::Game()
 {
     forest_grass = {
         "Forest", 
-        {{"Pidgey",Pokemon_Types::Normal_Type,40,2},
-         {"Zubat",Pokemon_Types::Poison_Type,30,10},
-         {"Caterpie",Pokemon_Types::Bug_Type,35,5}}, 
+        {{"Pidgey",Pokemon_Types::Normal_Type,40, 40, 2},
+         {"Zubat",Pokemon_Types::Poison_Type,30, 30, 10},
+         {"Caterpie",Pokemon_Types::Bug_Type,35, 35, 5}}, 
         70 };
 }
 void Game::GameLoop(Player& player)
@@ -41,14 +41,15 @@ void Game::GameLoop(Player& player)
             {
                 WildPokemonEncounterHandler encounters;
                 Pokemons encountered_pokemon = encounters.GetRandomWildPokemonFromGrass(forest_grass);
-                //encountered_pokemon.Battle(player.captured_pokemon, encountered_pokemon);
                 battle_manager.StartBattle(player,encountered_pokemon);
+                player.captured_pokemon.ShowHealth(player.captured_pokemon);
                 break;
             }
             case 2:
             {
                 player.captured_pokemon.Heal();
-                cout << player.captured_pokemon.name << "'s health is fully restored.";
+                cout << player.captured_pokemon.name << "'s health is fully restored.\n";
+                player.captured_pokemon.ShowHealth(player.captured_pokemon);
                 break;
             }
             case 3:
