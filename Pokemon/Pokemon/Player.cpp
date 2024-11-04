@@ -4,6 +4,8 @@
 
 using namespace std;
 
+using namespace N_Utility;
+
 Player::Player()
 {
     Player::captured_pokemon = Pokemons();

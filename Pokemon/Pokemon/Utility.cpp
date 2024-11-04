@@ -3,6 +3,8 @@
 
 using namespace std;
 
+using namespace N_Utility;
+
 void Utility::WaitForEnter()
 {
     cin.get();

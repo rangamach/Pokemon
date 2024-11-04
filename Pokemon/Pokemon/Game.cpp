@@ -9,6 +9,8 @@
 
 using namespace std;
 
+using namespace N_Utility;
+
 Game::Game()
 {
     forest_grass = {
@@ -18,7 +20,7 @@ Game::Game()
          {"Caterpie",Pokemon_Types::Bug_Type,35, 35, 5}}, 
         70 };
 }
-void Game::GameLoop(Player& player)
+void Game::GameLoop(Player &player)
 {
     BattleManager battle_manager;
     int choice;

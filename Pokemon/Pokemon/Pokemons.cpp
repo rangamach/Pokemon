@@ -9,6 +9,8 @@ Pokemons::Pokemons()
     Pokemons::name = "Unknown";
     Pokemons::type = Pokemon_Types::Normal_Type;
     Pokemons::health = 50;
+    Pokemons::max_health = 100;
+    Pokemons::attack_power = 10;
 }
 
 Pokemons::Pokemons(string poke_name, Pokemon_Types poke_type, int poke_health, int poke_max_health, int poke_attack_power)

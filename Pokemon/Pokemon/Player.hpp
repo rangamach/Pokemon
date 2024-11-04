@@ -18,5 +18,4 @@ class Player
 		Player();
 		Player(string playerName, Pokemons playerCapturedPokemon);
 		void ChosenPokemon(int choice);
-
 };

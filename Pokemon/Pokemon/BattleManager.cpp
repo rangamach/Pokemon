@@ -5,7 +5,9 @@
 
 using namespace std;
 
-void BattleManager::StartBattle(Player &player, Pokemons &wild_pokemon)
+using namespace N_Utility;
+
+void BattleManager::StartBattle(Player& player, Pokemons& wild_pokemon)
 {
     battle_state.player_pokemon = &player.captured_pokemon;
     battle_state.wild_pokemon = &wild_pokemon;
