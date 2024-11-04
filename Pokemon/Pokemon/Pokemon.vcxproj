@@ -127,7 +127,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BattleManager.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Pokemon.cpp" />
+    <ClCompile Include="Pokemons.cpp" />
+    <ClCompile Include="Utility.cpp" />
+    <ClCompile Include="WildPokemonEncounterHandler.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BattleManager.hpp" />
+    <ClInclude Include="BattleState.hpp" />
+    <ClInclude Include="Game.hpp" />
+    <ClInclude Include="Grass.hpp" />
+    <ClInclude Include="Player.hpp" />
+    <ClInclude Include="Pokemon.hpp" />
+    <ClInclude Include="PokemonChoice.hpp" />
+    <ClInclude Include="Pokemons.h" />
+    <ClInclude Include="PokemonType.hpp" />
+    <ClInclude Include="Utility.hpp" />
+    <ClInclude Include="WildPokemonEncounterHandler.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
