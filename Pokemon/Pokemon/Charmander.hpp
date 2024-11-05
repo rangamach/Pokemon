@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Pokemons.hpp"
 
 class Charmander :public Pokemons

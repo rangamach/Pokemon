@@ -22,7 +22,7 @@ Game::Game()
 }
 void Game::GameLoop(Player &player)
 {
-    BattleManager battle_manager;
+    BattleManager* battle_manager = new BattleManager();
     int choice;
     bool keepPlaying = true;
     while (keepPlaying)
@@ -43,7 +43,7 @@ void Game::GameLoop(Player &player)
             {
                 WildPokemonEncounterHandler encounters;
                 Pokemons encountered_pokemon = encounters.GetRandomWildPokemonFromGrass(forest_grass);
-                battle_manager.StartBattle(player,encountered_pokemon);
+                battle_manager->StartBattle(player,encountered_pokemon);
                 player.captured_pokemon.ShowHealth(player.captured_pokemon);
                 break;
             }
@@ -77,4 +77,5 @@ void Game::GameLoop(Player &player)
         Utility::WaitForEnter();
     }
     cout << "Goodbye, " << player.name << "! Thanks for playing!\n";
+    delete(battle_manager);
 }

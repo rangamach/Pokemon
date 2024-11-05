@@ -128,25 +128,41 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BattleManager.cpp" />
+    <ClCompile Include="Bulbasaur.cpp" />
+    <ClCompile Include="Caterpie.cpp" />
+    <ClCompile Include="Charmander.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Pidgey.cpp" />
+    <ClCompile Include="Pikachu.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Pokemon.cpp" />
     <ClCompile Include="Pokemons.cpp" />
+    <ClCompile Include="ProfessorOak.cpp" />
+    <ClCompile Include="Squirtle.cpp" />
     <ClCompile Include="Utility.cpp" />
     <ClCompile Include="WildPokemonEncounterHandler.cpp" />
+    <ClCompile Include="Zubat.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BattleManager.hpp" />
     <ClInclude Include="BattleState.hpp" />
+    <ClInclude Include="Bulbasaur.hpp" />
+    <ClInclude Include="Caterpie.hpp" />
+    <ClInclude Include="Charmander.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Grass.hpp" />
+    <ClInclude Include="Pidgey.hpp" />
+    <ClInclude Include="Pikachu.hpp" />
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="Pokemon.hpp" />
     <ClInclude Include="PokemonChoice.hpp" />
     <ClInclude Include="Pokemons.h" />
     <ClInclude Include="PokemonType.hpp" />
+    <ClInclude Include="ProfessorOak.hpp" />
+    <ClInclude Include="Squirtle.hpp" />
     <ClInclude Include="Utility.hpp" />
     <ClInclude Include="WildPokemonEncounterHandler.hpp" />
+    <ClInclude Include="Zubat.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

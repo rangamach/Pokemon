@@ -9,6 +9,6 @@ Charmander::Charmander()
 
 void Charmander::FlameBurst(Pokemons& target_pokemon)
 {
-	cout << name << " uses Supersonic on " << target_pokemon.name << "!!!\n";
+	cout << name << " uses Flameburst on " << target_pokemon.name << "!!!\n";
 	target_pokemon.TakeDamage(35);
 }

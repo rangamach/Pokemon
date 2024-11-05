@@ -2,6 +2,8 @@
 
 class Zubat :public Pokemons
 {
-	Zubat();
-	void SuperSonic(Pokemons& target_pokemon);
+	public:
+		Zubat();
+	private:
+		void SuperSonic(Pokemons& target_pokemon);
 };
