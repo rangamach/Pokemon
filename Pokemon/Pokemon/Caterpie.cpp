@@ -12,3 +12,8 @@ void Caterpie::BugBite(Pokemons& target_pokemon)
 	cout << name << " uses Bugbite on " << target_pokemon.name << "!!!\n";
 	target_pokemon.TakeDamage(20);
 }
+
+void Caterpie::Attack(Pokemons& target_pokemon)
+{
+	BugBite(target_pokemon);
+}

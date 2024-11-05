@@ -18,7 +18,7 @@ public:
     Pokemons(string poke_name, Pokemon_Types poke_type, int poke_health, int poke_max_health, int poke_attack_power);
     Pokemons(const Pokemons& other);
     ~Pokemons();
-    void Attack(Pokemons &target_pokemon);
+    virtual void Attack(Pokemons &target_pokemon) = 0;
     void TakeDamage(int damage);
     bool IsFainted() const;
     void Heal();
