@@ -7,14 +7,14 @@ using namespace std;
 
 using namespace N_Utility;
 
-void BattleManager::StartBattle(Player& player, Pokemons& wild_pokemon)
+void BattleManager::StartBattle(Player& player, Pokemons* wild_pokemon)
 {
-    battle_state.player_pokemon = &player.captured_pokemon;
-    battle_state.wild_pokemon = &wild_pokemon;
+    battle_state.player_pokemon = player.captured_pokemon;
+    battle_state.wild_pokemon = wild_pokemon;
     battle_state.player_turn = true;
     battle_state.battle_unfinished = true;
-	cout << "A wild " << wild_pokemon.name << " appeared!\n";
-	Battle(player.captured_pokemon, wild_pokemon);
+	cout << "A wild " << wild_pokemon->name << " appeared!\n";
+	Battle(*player.captured_pokemon, *wild_pokemon);
 }
 
 void BattleManager::Battle(Pokemons& player_pokemon, Pokemons& wild_pokemon)
@@ -22,9 +22,9 @@ void BattleManager::Battle(Pokemons& player_pokemon, Pokemons& wild_pokemon)
     while (battle_state.battle_unfinished)
     {
         if (battle_state.player_turn)
-            battle_state.player_pokemon->Attack(*battle_state.wild_pokemon);
+            battle_state.player_pokemon->Attack(battle_state.wild_pokemon);
         else
-            battle_state.wild_pokemon->Attack(*battle_state.player_pokemon);
+            battle_state.wild_pokemon->Attack(battle_state.player_pokemon);
         UpdateBattleState();
         battle_state.player_turn = !battle_state.player_turn;
         Utility::WaitForEnter();

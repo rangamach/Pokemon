@@ -4,13 +4,18 @@
 
 using namespace std;
 
-Pikachu::Pikachu()
+//Pikachu::Pikachu()
+//{
+//	//Pokemons("Pikachu", Pokemon_Types::Electric_Type, 100, 100, 15);
+//}
+
+void Pikachu::ThunderShock(Pokemons* target_pokemon)
 {
-	Pokemons("Pikachu", Pokemon_Types::Electric_Type, 100, 100, 15);
+	cout << name << " uses Thundershock on " << target_pokemon->name << "!!!\n";
+	target_pokemon->TakeDamage(20);
 }
 
-void Pikachu::ThunderShock(Pokemons& target_pokemon)
+void Pikachu::Attack(Pokemons* target_pokemon)
 {
-	cout << name << " uses Thundershock on " << target_pokemon.name << "!!!\n";
-	target_pokemon.TakeDamage(20);
+	ThunderShock(target_pokemon);
 }

@@ -4,6 +4,9 @@
 #include "Utility.hpp"
 #include "WildPokemonEncounterHandler.hpp"
 #include "BattleManager.hpp"
+#include "Pidgey.hpp"
+#include "Zubat.hpp"
+#include "Caterpie.hpp"
 #include<iostream>
 
 
@@ -14,12 +17,12 @@ using namespace N_Utility;
 Game::Game()
 {
     forest_grass = {
-        "Forest", 
-        {{"Pidgey",Pokemon_Types::Normal_Type,40, 40, 2},
-         {"Zubat",Pokemon_Types::Poison_Type,30, 30, 10},
-         {"Caterpie",Pokemon_Types::Bug_Type,35, 35, 5}}, 
-        70 };
+        "Forest",
+        {new Pidgey(),new Zubat(),new Caterpie()},
+        70
+    };
 }
+
 void Game::GameLoop(Player &player)
 {
     BattleManager* battle_manager = new BattleManager();
@@ -41,17 +44,18 @@ void Game::GameLoop(Player &player)
         {
             case 1:
             {
+                // What pokemon will appear randomly while walking around.
                 WildPokemonEncounterHandler encounters;
-                Pokemons encountered_pokemon = encounters.GetRandomWildPokemonFromGrass(forest_grass);
+                Pokemons* encountered_pokemon = encounters.GetRandomWildPokemonFromGrass(forest_grass);
                 battle_manager->StartBattle(player,encountered_pokemon);
-                player.captured_pokemon.ShowHealth(player.captured_pokemon);
                 break;
             }
             case 2:
             {
-                player.captured_pokemon.Heal();
-                cout << player.captured_pokemon.name << "'s health is fully restored.\n";
-                player.captured_pokemon.ShowHealth(player.captured_pokemon);
+                //player.captured_pokemon.Heal();
+                wild_pokemon->Heal();
+                //cout << player.captured_pokemon.name << "'s health is fully restored.\n";
+                cout << wild_pokemon->name << "'s health is fully restored.\n";
                 break;
             }
             case 3:
@@ -78,4 +82,9 @@ void Game::GameLoop(Player &player)
     }
     cout << "Goodbye, " << player.name << "! Thanks for playing!\n";
     delete(battle_manager);
+}
+
+Game::~Game()
+{
+
 }

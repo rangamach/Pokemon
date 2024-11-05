@@ -5,7 +5,9 @@
 class Caterpie :public Pokemons
 {
 	public:
-		Caterpie();
+		Caterpie() : Pokemons("Caterpie", Pokemon_Types::Bug_Type, 100, 100, 10) {};
 	private:
-		void BugBite(Pokemons& target_pokemon);
+		void BugBite(Pokemons* target_pokemon);
+
+		void Attack(Pokemons* target_pokemon) override;
 };

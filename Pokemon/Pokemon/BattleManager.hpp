@@ -6,7 +6,7 @@ class Pokemons;
 class BattleManager
 {
 	public:
-		void StartBattle(Player& player, Pokemons &wild_pokemon);
+		void StartBattle(Player& player, Pokemons *wild_pokemon);
 	private:
 		BattleState battle_state;
 		void Battle(Pokemons &player_pokemon, Pokemons &wild_pokemon);

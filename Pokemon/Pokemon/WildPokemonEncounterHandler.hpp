@@ -5,5 +5,5 @@ class WildPokemonEncounterHandler
 {
 public:
 	WildPokemonEncounterHandler();
-	Pokemons GetRandomWildPokemonFromGrass(const Grass& grass);
+	Pokemons* GetRandomWildPokemonFromGrass(const Grass& grass);
 };

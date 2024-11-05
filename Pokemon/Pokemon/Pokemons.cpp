@@ -60,11 +60,6 @@ void Pokemons::Heal()
     health = max_health;
 }
 
-void Pokemons::ShowHealth(Pokemons pokemon)
-{
-    cout << "\n" << pokemon.name << "'s health is at " << pokemon.health << endl;
-}
-
 int Pokemons::GetHealth()
 {
     return health;

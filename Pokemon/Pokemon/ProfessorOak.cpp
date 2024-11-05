@@ -44,7 +44,7 @@ void ProfessorOak::FirstPokemon(Player& player)
     cin >> choice;
     player.ChosenPokemon(choice);
 
-    cout << "Professor Oak: " << player.captured_pokemon.name << " and you, " << player.name << ", are going to be the best of friends!\n";
+    cout << "Professor Oak: " << player.captured_pokemon->name << " and you, " << player.name << ", are going to be the best of friends!\n";
     Utility::WaitForEnter();
 }
 
