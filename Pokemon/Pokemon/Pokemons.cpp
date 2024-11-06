@@ -36,13 +36,6 @@ Pokemons::~Pokemons()
 
 }
 
-//void Pokemons::Attack(Pokemons &target_pokemon)
-//{
-//    int damage = attack_power;
-//    cout << name << " inflicts an attack to " << target_pokemon.name << " that does " << damage << " damage!\n";
-//    target_pokemon.TakeDamage(damage);
-//}
-
 void Pokemons::TakeDamage(int damage)
 {
     health -= damage;

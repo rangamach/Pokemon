@@ -1,16 +1,19 @@
 #include "Caterpie.hpp"
 #include "PokemonType.hpp"
+#include "Utility.hpp"
 #include<iostream>
 
-//Caterpie::Caterpie()
-//{
-//	Pokemons("Caterpie", Pokemon_Types::Bug_Type, 100, 100, 10);
-//}
+using namespace N_Utility;
 
 void Caterpie::BugBite(Pokemons* target_pokemon)
 {
 	cout << name << " uses Bugbite on " << target_pokemon->name << "!!!\n";
-	target_pokemon->TakeDamage(20);
+	target_pokemon->TakeDamage(attack_power);
+	N_Utility::Utility::WaitForEnter();
+	if (target_pokemon->IsFainted())
+		cout << target_pokemon->name << " fainted!!!\n";
+	else
+		cout << target_pokemon->name << " has " << target_pokemon->health << "HP left.";
 }
 
 void Caterpie::Attack(Pokemons* target_pokemon)

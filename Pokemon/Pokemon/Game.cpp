@@ -52,10 +52,8 @@ void Game::GameLoop(Player &player)
             }
             case 2:
             {
-                //player.captured_pokemon.Heal();
-                wild_pokemon->Heal();
-                //cout << player.captured_pokemon.name << "'s health is fully restored.\n";
-                cout << wild_pokemon->name << "'s health is fully restored.\n";
+                player.captured_pokemon->Heal();
+                cout << player.captured_pokemon->name << "'s health is fully restored.\n";
                 break;
             }
             case 3:
