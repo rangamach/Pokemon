@@ -156,6 +156,7 @@
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="Pokemon.hpp" />
     <ClInclude Include="PokemonChoice.hpp" />
+    <ClInclude Include="PokemonMove.hpp" />
     <ClInclude Include="Pokemons.h" />
     <ClInclude Include="PokemonType.hpp" />
     <ClInclude Include="ProfessorOak.hpp" />
