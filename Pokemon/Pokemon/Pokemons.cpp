@@ -3,6 +3,9 @@
 #include "PokemonType.hpp"
 #include "PokemonMove.hpp"
 #include "Utility.hpp"
+#include "IStatusEffect.hpp"
+#include "StatusEffectType.hpp"
+#include "ParalyzedEffect.hpp"
 
 using namespace std;
 
@@ -17,15 +20,6 @@ Pokemons::Pokemons()
     Pokemons::attack_power = 10;
     Pokemons::pokemon_moves = {};
 }
-
-//Pokemons::Pokemons(string poke_name, Pokemon_Types poke_type, int poke_health, int poke_max_health, int poke_attack_power)
-//{
-//    Pokemons::name = poke_name;
-//    Pokemons::type = poke_type;
-//    Pokemons::health = poke_health;
-//    Pokemons::max_health = poke_max_health;
-//    Pokemons::attack_power = poke_attack_power;
-//}
 
 Pokemons::Pokemons(string poke_name, Pokemon_Types poke_type, int poke_health, int poke_max_health, vector<PokemonMove> pokemon_moves_list)
 {
@@ -42,7 +36,6 @@ Pokemons::Pokemons(const Pokemons& other)
     Pokemons::type = other.type;
     Pokemons::health = other.health;
     Pokemons::max_health = other.max_health;
-    //Pokemons::attack_power = other.attack_power;
     Pokemons::pokemon_moves = other.pokemon_moves;
 }
 
@@ -125,6 +118,42 @@ void Pokemons::SelectAndExecuteMove(Pokemons* target_pokemon)
 
 void Pokemons::ReduceAttackPower(int power)
 {
-    attack_power -= power;
+    for (int i = 0; i < pokemon_moves.size(); i++)
+    {
+        pokemon_moves[i].move_power -= power;
+        if (pokemon_moves[i].move_power < 0)
+            pokemon_moves[i].move_power = 0;
+    }
+}
+
+bool Pokemons::CanAttack()
+{
+    if (applied_effect == nullptr)
+        return true;
+    else
+        return applied_effect->TurnEndEffect(this);
+}
+
+bool Pokemons::CanApplyEffect()
+{
+    return applied_effect == nullptr;
+}
+
+void Pokemons::ApplyEffect(StatusEffectType status_to_apply)
+{
+    switch (status_to_apply)
+    {
+        case StatusEffectType::Paralyzed:
+            applied_effect = new ParalyzedEffect();
+            applied_effect->ApplyEffect(this);
+            break;
+        default:
+            applied_effect = nullptr;
+    }
+}
+
+void Pokemons::ClearEffect()
+{
+    applied_effect = nullptr;
 }
 

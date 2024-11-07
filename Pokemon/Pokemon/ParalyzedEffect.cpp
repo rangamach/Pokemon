@@ -1,4 +1,5 @@
 #include "ParalyzedEffect.hpp"
+#include "IStatusEffect.hpp"
 #include "Pokemons.hpp"
 #include<iostream>
 
@@ -36,5 +37,5 @@ bool ParalyzedEffect::TurnEndEffect(Pokemons* target_pokemon)
 void ParalyzedEffect::ClearEffect(Pokemons* target_pokemon)
 {
 	cout << target_pokemon->name << " is no longer paralyzed!!!\n";
-	//target_pokemon->ClearEffect();
+	target_pokemon->ClearEffect();
 }

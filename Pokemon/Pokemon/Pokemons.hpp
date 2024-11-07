@@ -2,6 +2,8 @@
 
 #include<string>
 #include<vector>
+#include "IStatusEffect.hpp"
+#include "StatusEffectType.hpp"
 
 using namespace std;
 
@@ -17,6 +19,7 @@ public:
     int max_health;
     int attack_power;
     vector<PokemonMove> pokemon_moves;
+    IStatusEffect* applied_effect;
 
     Pokemons();
     Pokemons(string poke_name, Pokemon_Types poke_type, int poke_health, int poke_max_health, vector<PokemonMove> poke_moves_list);
@@ -30,6 +33,11 @@ public:
     void SetHealth(int updated_health);
     void SelectAndExecuteMove(Pokemons* target_pokemon);
     void ReduceAttackPower(int power);
+    bool CanAttack();
+    void ApplyEffect(StatusEffectType effect_to_apply);
+    void ClearEffect();
+    bool CanApplyEffect();
+
 protected:
     int SelectMove();
     void PrintAllAvailableMoves();

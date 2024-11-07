@@ -35,5 +35,10 @@ void Pikachu::Attack(PokemonMove selected_move, Pokemons* target_pokemon)
 	}
 	else
 		Pokemons::Attack(selected_move, target_pokemon);
+	if (selected_move.move_name == "Thundershock")
+	{
+		if (target_pokemon->CanApplyEffect())
+			target_pokemon->ApplyEffect(StatusEffectType::Paralyzed);
+	}
 	//ThunderShock(target_pokemon);
 }
