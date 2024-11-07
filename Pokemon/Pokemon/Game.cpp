@@ -9,7 +9,6 @@
 #include "Caterpie.hpp"
 #include<iostream>
 
-
 using namespace std;
 
 using namespace N_Utility;
