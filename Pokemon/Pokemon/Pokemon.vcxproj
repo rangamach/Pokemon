@@ -151,10 +151,10 @@
     <ClInclude Include="Charmander.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Grass.hpp" />
+    <ClInclude Include="IStatusEffect.hpp" />
     <ClInclude Include="Pidgey.hpp" />
     <ClInclude Include="Pikachu.hpp" />
     <ClInclude Include="Player.hpp" />
-    <ClInclude Include="Pokemon.hpp" />
     <ClInclude Include="PokemonChoice.hpp" />
     <ClInclude Include="PokemonMove.hpp" />
     <ClInclude Include="Pokemons.h" />

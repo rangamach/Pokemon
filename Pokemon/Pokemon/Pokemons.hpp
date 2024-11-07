@@ -19,7 +19,6 @@ public:
     vector<PokemonMove> pokemon_moves;
 
     Pokemons();
-    //Pokemons(string poke_name, Pokemon_Types poke_type, int poke_health, int poke_max_health, int poke_attack_power);
     Pokemons(string poke_name, Pokemon_Types poke_type, int poke_health, int poke_max_health, vector<PokemonMove> poke_moves_list);
     Pokemons(const Pokemons& other);
     ~Pokemons();
