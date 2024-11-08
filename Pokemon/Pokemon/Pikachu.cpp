@@ -8,17 +8,6 @@ using namespace N_Utility;
 
 using namespace std;
 
-//void Pikachu::ThunderShock(Pokemons* target_pokemon)
-//{
-//	cout << name << " uses Thundershock on " << target_pokemon->name << "!!!\n";
-//	target_pokemon->TakeDamage(attack_power);
-//	N_Utility::Utility::WaitForEnter();
-//	if (target_pokemon->IsFainted())
-//		cout << target_pokemon->name << " fainted!!!\n";
-//	else
-//		cout << target_pokemon->name << " has " << target_pokemon->health << "HP left.";
-//}
-
 void Pikachu::Attack(PokemonMove selected_move, Pokemons* target_pokemon)
 {
 	if (selected_move.move_name == "Thunderbolt")
@@ -40,5 +29,4 @@ void Pikachu::Attack(PokemonMove selected_move, Pokemons* target_pokemon)
 		if (target_pokemon->CanApplyEffect())
 			target_pokemon->ApplyEffect(StatusEffectType::Paralyzed);
 	}
-	//ThunderShock(target_pokemon);
 }

@@ -4,7 +4,6 @@
 
 enum class StatusEffectType
 {
-	NoEffect,
 	Paralyzed,
 	Sleeping,
 	Burned,

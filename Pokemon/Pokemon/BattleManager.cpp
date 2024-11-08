@@ -21,11 +21,9 @@ void BattleManager::Battle(Pokemons& player_pokemon, Pokemons* wild_pokemon)
 {
     while (battle_state.battle_unfinished)
     {
-        if (battle_state.player_turn)
-            //battle_state.player_pokemon->Attack(battle_state.wild_pokemon);
+        if (battle_state.player_turn && battle_state.player_pokemon->CanAttack())
             battle_state.player_pokemon->SelectAndExecuteMove(wild_pokemon);
-        else
-            //battle_state.wild_pokemon->Attack(battle_state.player_pokemon);
+        else if (battle_state.wild_pokemon->CanAttack());
             battle_state.wild_pokemon->SelectAndExecuteMove(battle_state.player_pokemon);
         UpdateBattleState();
         battle_state.player_turn = !battle_state.player_turn;
